@@ -177,8 +177,44 @@ h2{font-weight:600;font-size:clamp(1.68rem,3.7vw,2.65rem);line-height:1.35;lette
 .svc ul{list-style:none;display:grid;gap:11px}
 .svc li{display:flex;align-items:flex-start;gap:11px;font-size:.9rem;color:var(--muted);line-height:1.8}
 .svc li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--teal);margin-top:11px;flex:none;opacity:.8}
-@media(max-width:1050px){.svcs{grid-template-columns:1fr 1fr}}
-@media(max-width:680px){.svcs{grid-template-columns:1fr}}
+.svc.wide{grid-column:1/-1}
+.svc.wide .svc-top{margin-bottom:10px}
+.svc.wide .svc-lede{color:var(--muted);font-size:.9rem;line-height:1.95;
+  max-width:70ch;margin-bottom:20px}
+.svc.wide ul{grid-template-columns:repeat(3,1fr);gap:11px 30px}
+@media(max-width:1050px){.svcs{grid-template-columns:1fr 1fr}
+  .svc.wide ul{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.svcs{grid-template-columns:1fr}
+  .svc.wide ul{grid-template-columns:1fr}}
+
+/* ============ المنتجات ============ */
+.prods{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.prod{padding:30px 28px 32px;border-radius:var(--r);border:1px solid var(--line);
+  background:linear-gradient(180deg,var(--panel),var(--bg-2));
+  position:relative;overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .4s,border-color .4s,box-shadow .4s}
+.prod::before{content:"";position:absolute;top:0;right:0;left:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--teal),transparent);
+  transform:scaleX(0);transition:transform .55s cubic-bezier(.5,0,.2,1)}
+.prod:hover{transform:translateY(-5px);border-color:var(--line-2);box-shadow:0 22px 54px rgba(0,0,0,.5)}
+.prod:hover::before{transform:scaleX(1)}
+.prod-stage{font-family:var(--mono);font-size:.68rem;color:var(--dim);letter-spacing:.1em;margin-bottom:18px}
+.prod-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px}
+.prod-top h3{font-weight:600;font-size:1.12rem;margin-bottom:5px}
+.prod-who{font-size:.76rem;color:var(--dim)}
+.prod-desc{color:var(--muted);font-size:.89rem;line-height:1.95;margin-bottom:18px}
+.prod ul{list-style:none;display:grid;gap:10px;margin-bottom:22px}
+.prod li{display:flex;align-items:flex-start;gap:11px;font-size:.87rem;color:var(--muted);line-height:1.8}
+.prod li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--teal);
+  margin-top:10px;flex:none;opacity:.8}
+.tag{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;padding:4px 13px;
+  border-radius:100px;margin-top:auto;align-self:flex-start}
+.tag.live{color:var(--teal);background:rgba(26,188,156,.09);border:1px solid rgba(26,188,156,.3)}
+.tag.soon{color:var(--amber);background:rgba(233,186,85,.09);border:1px solid rgba(233,186,85,.3)}
+.avail{text-align:center;color:var(--dim);font-size:.87rem;line-height:1.95;
+  max-width:62ch;margin:30px auto 0}
+@media(max-width:1000px){.prods{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.prods{grid-template-columns:1fr}}
 
 /* ============ المنهجية ============ */
 .method{position:relative;margin-top:18px}
@@ -276,6 +312,7 @@ footer{padding:56px var(--pad) 40px;border-top:1px solid var(--line);margin-top:
     <nav class="menu">
       <a href="#about">من نحن</a>
       <a href="#services">نطاق الأعمال</a>
+      <a href="#products">منتجاتنا</a>
       <a href="#method">منهجية العمل</a>
       <a href="#clients">العملاء</a>
     </nav>
@@ -385,14 +422,100 @@ footer{padding:56px var(--pad) 40px;border-top:1px solid var(--line);margin-top:
       <article class="svc rv">
         <div class="svc-top"><h3>حلول الأعمال والاستشارات</h3>
           <div class="icon m"><svg viewBox="0 0 24 24" class="i-m" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div></div>
-        <ul><li>استراتيجيات الابتكار</li><li>نماذج أعمال ودراسات جدوى</li><li>قياس الأثر</li><li>إعادة هيكلة البرامج</li></ul>
+        <ul><li>استراتيجيات الابتكار</li><li>نماذج أعمال ودراسات جدوى</li><li>استشارات تخصصية للجهات</li><li>قياس الأثر وإعادة هيكلة البرامج</li></ul>
+      </article>
+
+      <article class="svc wide rv">
+        <div class="svc-top"><h3>تطوير المنصات والمواقع الإلكترونية</h3>
+          <div class="icon m"><svg viewBox="0 0 24 24" class="i-m" aria-hidden="true"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></div></div>
+        <p class="svc-lede">نبني المنصات والمواقع التي تحتاجها برامجكم — من موقع تعريفي إلى منصة تشغيل كاملة، بالعربية والإنجليزية ومتجاوبة مع كل الأجهزة.</p>
+        <ul>
+          <li>مواقع تعريفية وهويات رقمية</li>
+          <li>منصات تسجيل وإدارة البرامج</li>
+          <li>أنظمة التحكيم والتقييم الإلكتروني</li>
+          <li>لوحات متابعة وتقارير</li>
+          <li>ربط الأنظمة القائمة وتكاملها</li>
+          <li>تشغيل ودعم فني مستمر</li>
+        </ul>
       </article>
     </div>
   </div>
 </section>
 
+<!-- ================ المنتجات ================ -->
+<section id="products">
+  <div class="inner">
+    <div class="head rv">
+      <div class="kicker m">منتجاتنا</div>
+      <h2>منصات إنكسيا</h2>
+      <p>ثلاث منصات رقمية نطوّرها ونشغّلها، تغطي رحلة الفكرة كاملة — من استقطابها حتى ترخيصها.</p>
+    </div>
+
+    <div class="prods">
+      <article class="prod rv">
+        <div class="prod-stage">01 — استقطاب</div>
+        <div class="prod-top">
+          <div>
+            <h3>منصة الفعاليات والتحديات</h3>
+            <div class="prod-who">للجامعات والجهات المنظِّمة</div>
+          </div>
+          <div class="icon m"><svg viewBox="0 0 24 24" class="i-m" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91 0z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
+        </div>
+        <p class="prod-desc">تشغيل الهاكاثونات والمعسكرات وتحديات المعارض من منصة واحدة — من التسجيل حتى إعلان الفائزين.</p>
+        <ul>
+          <li>تسجيل أفراد وفرق مع تحقق</li>
+          <li>تحكيم إلكتروني بمعايير مخصّصة</li>
+          <li>تحديات تفاعلية للزوّار عبر QR</li>
+          <li>لوحة متابعة ونتائج لحظية</li>
+        </ul>
+        <span class="tag live">● تعمل الآن</span>
+      </article>
+
+      <article class="prod rv">
+        <div class="prod-stage">02 — حماية</div>
+        <div class="prod-top">
+          <div>
+            <h3>منصة إدارة الملكية الفكرية</h3>
+            <div class="prod-who">لمكاتب نقل التقنية</div>
+          </div>
+          <div class="icon v"><svg viewBox="0 0 24 24" class="i-v" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 7.5-7 9-4-1.5-7-4-7-9V6z"/><path d="m9.5 12 1.8 1.8 3.4-3.6"/></svg></div>
+        </div>
+        <p class="prod-desc">سجل مركزي للمحفظة يمنع ضياع المهل النظامية وفوات الرسوم، ويُظهر حالة كل طلب في لوحة واحدة.</p>
+        <ul>
+          <li>تتبّع الطلبات ومراحلها النظامية</li>
+          <li>تنبيهات الرسوم قبل استحقاقها</li>
+          <li>ربط المخترعين بطلباتهم</li>
+          <li>تقارير أداء المحفظة</li>
+        </ul>
+        <span class="tag live">● تعمل الآن</span>
+      </article>
+
+      <article class="prod rv">
+        <div class="prod-stage">03 — تسويق</div>
+        <div class="prod-top">
+          <div>
+            <h3>Innovation Marketplace</h3>
+            <div class="prod-who">للجامعات والقطاع الصناعي</div>
+          </div>
+          <div class="icon b"><svg viewBox="0 0 24 24" class="i-b" aria-hidden="true"><path d="M3 9h18M3 9l1.5-5h15L21 9M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9"/><path d="M9 21v-7h6v7"/></svg></div>
+        </div>
+        <p class="prod-desc">سوق رقمي يعرض التقنيات القابلة للترخيص أمام الشركات الباحثة عن حلول، ويدير التفاوض حتى التعاقد.</p>
+        <ul>
+          <li>عرض التقنيات وبراءات الاختراع</li>
+          <li>مطابقة الطلب الصناعي بالعرض البحثي</li>
+          <li>إدارة طلبات الترخيص</li>
+          <li>تقارير اهتمام السوق</li>
+        </ul>
+        <span class="tag soon">● قيد التطوير</span>
+      </article>
+    </div>
+
+    <p class="avail rv">تُتاح منصات إنكسيا بترخيص سنوي، أو كخدمة مُشغّلة ضمن مشروع، أو بتخصيص كامل لهوية الجهة.</p>
+  </div>
+</section>
+
 <!-- ================ المنهجية ================ -->
-<section id="method">
+<section id="method" class="band">
   <div class="inner">
     <div class="head rv"><div class="kicker m">كيف نعمل</div><h2>منهجية العمل</h2>
       <p>منهجية متكاملة من خمس مراحل، تنقل المنظومة من التقييم إلى التوسع المستدام.</p></div>
@@ -425,7 +548,7 @@ footer{padding:56px var(--pad) 40px;border-top:1px solid var(--line);margin-top:
 </section>
 
 <!-- ================ العملاء ================ -->
-<section id="clients" class="band">
+<section id="clients">
   <div class="inner">
     <div class="head rv"><div class="kicker b">شركاؤنا</div><h2>العملاء المستهدفون</h2>
       <p>نخدم مجموعة متنوعة من الجهات الرائدة في المنطقة.</p></div>
@@ -453,7 +576,7 @@ footer{padding:56px var(--pad) 40px;border-top:1px solid var(--line);margin-top:
 </section>
 
 <!-- ================ التموضع ================ -->
-<section id="positioning">
+<section id="positioning" class="band">
   <div class="inner">
     <div class="head rv"><div class="kicker m">تموضعنا</div><h2>نحن</h2></div>
     <div class="pos rv">
