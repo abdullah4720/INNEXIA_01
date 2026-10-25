@@ -738,7 +738,7 @@ form.addEventListener('submit',async e=>{
   if(!FORM_ENDPOINT){
     const body=`الاسم: ${d['الاسم']}\nالبريد: ${d['البريد']}\nالجهة: ${d['الجهة']||'—'}\n\n${d['الرسالة']}`;
     location.href='mailto:info@innexia.sa?subject='+encodeURIComponent('طلب تواصل — '+d['الاسم'])+'&body='+encodeURIComponent(body);
-    say('فُتح برنامج البريد لديكم لإتمام الإرسال.','ok');
+    say('أُعِدَّت رسالتكم، ويُرجى إتمام إرسالها من بريدكم الإلكتروني.','ok');
     return;
   }
   send.disabled=true; send.style.opacity='.6'; say('جارٍ الإرسال…','ok');
