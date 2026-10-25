@@ -177,15 +177,8 @@ h2{font-weight:600;font-size:clamp(1.68rem,3.7vw,2.65rem);line-height:1.35;lette
 .svc ul{list-style:none;display:grid;gap:11px}
 .svc li{display:flex;align-items:flex-start;gap:11px;font-size:.9rem;color:var(--muted);line-height:1.8}
 .svc li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--teal);margin-top:11px;flex:none;opacity:.8}
-.svc.wide{grid-column:1/-1}
-.svc.wide .svc-top{margin-bottom:10px}
-.svc.wide .svc-lede{color:var(--muted);font-size:.9rem;line-height:1.95;
-  max-width:70ch;margin-bottom:20px}
-.svc.wide ul{grid-template-columns:repeat(3,1fr);gap:11px 30px}
-@media(max-width:1050px){.svcs{grid-template-columns:1fr 1fr}
-  .svc.wide ul{grid-template-columns:1fr 1fr}}
-@media(max-width:680px){.svcs{grid-template-columns:1fr}
-  .svc.wide ul{grid-template-columns:1fr}}
+@media(max-width:1050px){.svcs{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.svcs{grid-template-columns:1fr}}
 
 /* ============ المنتجات ============ */
 .prods{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -274,6 +267,58 @@ h2{font-weight:600;font-size:clamp(1.68rem,3.7vw,2.65rem);line-height:1.35;lette
   border:1px solid var(--line-2);background:rgba(26,188,156,.06);padding:7px 17px;border-radius:100px;margin-bottom:20px}
 .pill svg{width:14px;height:14px;fill:none;stroke:var(--teal);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
+/* ============ نموذج التواصل ============ */
+.cform{max-width:640px;margin:30px auto 0;text-align:right;display:grid;gap:14px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fld{display:grid;gap:7px}
+.fld label{font-size:.83rem;color:var(--muted)}
+.fld label i{color:var(--teal);font-style:normal}
+.fld input,.fld textarea{
+  font-family:var(--ar);font-weight:300;font-size:.94rem;color:var(--fg);
+  background:rgba(5,10,22,.6);border:1px solid var(--line-2);border-radius:12px;
+  padding:13px 16px;width:100%;transition:border-color .3s,background .3s}
+.fld textarea{resize:vertical;min-height:112px;line-height:1.8}
+.fld input::placeholder,.fld textarea::placeholder{color:var(--dim)}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--teal);background:rgba(5,10,22,.9)}
+.fld input:user-invalid,.fld textarea:user-invalid{border-color:#E0686B}
+.cform .btn-p{justify-content:center;width:100%;border:0;cursor:pointer;
+  font-family:var(--ar);font-size:.96rem;margin-top:4px}
+.fnote{font-size:.82rem;color:var(--dim);text-align:center}
+.fnote a{color:var(--muted);border-bottom:1px solid var(--line-2)}
+.fnote a:hover{color:var(--teal)}
+.fmsg{display:none;font-size:.9rem;text-align:center;padding:13px 18px;border-radius:12px}
+.fmsg.ok{display:block;color:var(--teal);background:rgba(26,188,156,.09);border:1px solid rgba(26,188,156,.3)}
+.fmsg.err{display:block;color:#E0686B;background:rgba(224,104,107,.08);border:1px solid rgba(224,104,107,.3)}
+@media(max-width:560px){.frow{grid-template-columns:1fr}}
+
+/* ============ قائمة الجوال ============ */
+.burger{display:none;width:42px;height:42px;border-radius:12px;cursor:pointer;padding:0;
+  border:1px solid var(--line-2);background:var(--panel);
+  flex-direction:column;align-items:center;justify-content:center}
+.burger span{display:block;width:18px;height:1.5px;background:var(--fg);border-radius:2px;
+  transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .2s}
+.burger span+span{margin-top:4.5px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.drawer{display:none}
+@media(max-width:940px){
+  .burger{display:flex}
+  .nav-in .nav-cta{display:none}
+  .drawer{display:block;position:fixed;inset:64px 0 auto 0;z-index:85;
+    background:var(--bg);border-bottom:1px solid var(--line);
+    box-shadow:0 20px 40px rgba(0,0,0,.5);
+    max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+  .drawer.open{max-height:min(420px,calc(100svh - 64px));overflow-y:auto}
+  .drawer-in{padding:10px var(--pad) 26px;display:grid;gap:2px}
+  .drawer a{padding:15px 4px;font-size:1rem;color:var(--muted);
+    border-bottom:1px solid var(--line);transition:color .25s}
+  .drawer a:last-child{border-bottom:0}
+  .drawer a:active,.drawer a:hover{color:var(--fg)}
+  .drawer a.nav-cta{display:inline-flex;justify-content:center;margin-top:16px;
+    padding:13px 24px;font-size:.94rem;color:#04231C;font-weight:500}
+}
+
 footer{padding:56px var(--pad) 40px;border-top:1px solid var(--line);margin-top:clamp(54px,7vw,100px)}
 .f-in{max-width:var(--maxw);margin-inline:auto;text-align:center}
 .f-logos{display:flex;align-items:center;justify-content:center;gap:clamp(22px,5vw,52px);flex-wrap:wrap;margin-bottom:32px}
@@ -316,8 +361,22 @@ footer{padding:56px var(--pad) 40px;border-top:1px solid var(--line);margin-top:
       <a href="#clients">العملاء</a>
     </nav>
     <a href="#contact" class="nav-cta">تواصل معنا</a>
+    <button class="burger" id="burger" aria-label="فتح القائمة" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<div class="drawer" id="drawer">
+  <nav class="drawer-in">
+    <a href="#about">من نحن</a>
+    <a href="#services">نطاق الأعمال</a>
+    <a href="#products">منتجاتنا</a>
+    <a href="#method">منهجية العمل</a>
+    <a href="#clients">العملاء</a>
+    <a href="#contact" class="nav-cta">تواصل معنا</a>
+  </nav>
+</div>
 
 <main id="top">
 
@@ -414,20 +473,14 @@ footer{padding:56px var(--pad) 40px;border-top:1px solid var(--line);margin-top:
         <ul><li>تصميم استراتيجيات الابتكار المرتبطة بالتحول الرقمي</li><li>إعادة تصميم نماذج التشغيل بالحلول الرقمية</li><li>تطوير وتشغيل منصات رقمية لإدارة الابتكار</li><li>إدارة وتفعيل أنظمة إدارة الابتكار</li><li>دعم تبنّي التقنيات الناشئة</li></ul>
       </article>
       <article class="svc rv">
-        <div class="svc-top"><h3>الشهادات والبرامج الاحترافية</h3>
+        <div class="svc-top"><h3>الاستشارات وبناء القدرات</h3>
           <div class="icon m"><svg viewBox="0 0 24 24" class="i-m" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></div></div>
-        <ul><li>شهادات احترافية</li><li>برامج قيادية</li><li>بناء القدرات</li><li>شراكات اعتماد</li></ul>
-      </article>
-      <article class="svc rv">
-        <div class="svc-top"><h3>حلول الأعمال والاستشارات</h3>
-          <div class="icon m"><svg viewBox="0 0 24 24" class="i-m" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></div></div>
-        <ul><li>استراتيجيات الابتكار</li><li>نماذج أعمال ودراسات جدوى</li><li>استشارات تخصصية للجهات</li><li>قياس الأثر وإعادة هيكلة البرامج</li></ul>
+        <ul><li>استراتيجيات الابتكار ونماذج الأعمال</li><li>دراسات الجدوى وقياس الأثر</li><li>استشارات تخصصية للجهات</li><li>شهادات احترافية وبرامج قيادية</li><li>بناء القدرات وشراكات الاعتماد</li></ul>
       </article>
 
-      <article class="svc wide rv">
+      <article class="svc rv">
         <div class="svc-top"><h3>تطوير المنصات والمواقع الإلكترونية</h3>
           <div class="icon m"><svg viewBox="0 0 24 24" class="i-m" aria-hidden="true"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></div></div>
-        <p class="svc-lede">نبني المنصات والمواقع التي تحتاجها برامجكم — من موقع تعريفي إلى منصة تشغيل كاملة، بالعربية والإنجليزية ومتجاوبة مع كل الأجهزة.</p>
         <ul>
           <li>مواقع تعريفية وهويات رقمية</li>
           <li>منصات تسجيل وإدارة البرامج</li>
@@ -596,13 +649,35 @@ footer{padding:56px var(--pad) 40px;border-top:1px solid var(--line);margin-top:
     </span>
     <h2>لتحويل الابتكار إلى أثر</h2>
     <p>تواصل معنا لمناقشة كيف يمكننا مساعدتكم في بناء منظومة ابتكار مستدامة تحقق أهدافكم الاستراتيجية.</p>
-    <div class="acts">
-      <a href="mailto:info@innexia.sa" class="btn btn-p">تواصل معنا
-        <svg viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></a>
-      <a href="tel:0537797577" class="btn btn-s">
-        <svg viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
-        <span style="font-family:var(--mono);letter-spacing:.04em">0537797577</span></a>
-    </div>
+    <form class="cform" id="cform" novalidate>
+      <div class="frow">
+        <div class="fld">
+          <label for="f-name">الاسم <i>*</i></label>
+          <input id="f-name" name="الاسم" type="text" required autocomplete="name" placeholder="الاسم الكامل">
+        </div>
+        <div class="fld">
+          <label for="f-mail">البريد الإلكتروني <i>*</i></label>
+          <input id="f-mail" name="البريد" type="email" required autocomplete="email" placeholder="name@example.com" dir="ltr" style="text-align:right">
+        </div>
+      </div>
+      <div class="fld">
+        <label for="f-org">الجهة</label>
+        <input id="f-org" name="الجهة" type="text" autocomplete="organization" placeholder="اسم الجامعة أو الشركة">
+      </div>
+      <div class="fld">
+        <label for="f-msg">كيف يمكننا المساعدة؟ <i>*</i></label>
+        <textarea id="f-msg" name="الرسالة" required placeholder="اكتب باختصار ما تحتاجونه"></textarea>
+      </div>
+      <button type="submit" class="btn btn-p" id="f-send">
+        إرسال الطلب
+        <svg viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+      </button>
+      <p class="fmsg" id="f-state" role="status" aria-live="polite"></p>
+      <p class="fnote">أو تواصلوا مباشرة:
+        <a href="mailto:info@innexia.sa">info@innexia.sa</a> ·
+        <a href="tel:0537797577" dir="ltr">0537797577</a>
+      </p>
+    </form>
   </div>
 </section>
 
@@ -631,6 +706,50 @@ const io=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting)
   e.target.style.transitionDelay=(i*60)+'ms';e.target.classList.add('on');io.unobserve(e.target);}})},
   {threshold:.12,rootMargin:'0px 0px -50px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ===== قائمة الجوال ===== */
+const burger=document.getElementById('burger'), drawer=document.getElementById('drawer');
+const setMenu=(open)=>{
+  drawer.classList.toggle('open',open);
+  burger.setAttribute('aria-expanded',open);
+  burger.setAttribute('aria-label',open?'إغلاق القائمة':'فتح القائمة');
+};
+burger.addEventListener('click',()=>setMenu(!drawer.classList.contains('open')));
+drawer.addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false)});
+addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+addEventListener('click',e=>{
+  if(drawer.classList.contains('open')&&!e.target.closest('#drawer')&&!e.target.closest('#burger'))setMenu(false);
+});
+addEventListener('resize',()=>{if(innerWidth>940)setMenu(false)});
+
+/* ===== نموذج التواصل ===== */
+/* ضع معرّف Formspree هنا ليصل الطلب إلى بريدكم تلقائياً؛ وإن تُرك فارغاً يفتح النموذج بريد الزائر */
+const FORM_ENDPOINT = '';
+const form=document.getElementById('cform'), state=document.getElementById('f-state'), send=document.getElementById('f-send');
+const say=(txt,cls)=>{state.textContent=txt;state.className='fmsg '+cls};
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(!form.checkValidity()){
+    say('يرجى تعبئة الحقول المطلوبة ببريد صحيح.','err');
+    form.querySelector(':invalid')?.focus();
+    return;
+  }
+  const d=Object.fromEntries(new FormData(form));
+  if(!FORM_ENDPOINT){
+    const body=`الاسم: ${d['الاسم']}\nالبريد: ${d['البريد']}\nالجهة: ${d['الجهة']||'—'}\n\n${d['الرسالة']}`;
+    location.href='mailto:info@innexia.sa?subject='+encodeURIComponent('طلب تواصل — '+d['الاسم'])+'&body='+encodeURIComponent(body);
+    say('فُتح برنامج البريد لديكم لإتمام الإرسال.','ok');
+    return;
+  }
+  send.disabled=true; send.style.opacity='.6'; say('جارٍ الإرسال…','ok');
+  try{
+    const r=await fetch(FORM_ENDPOINT,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+    if(!r.ok) throw 0;
+    form.reset(); say('وصلنا طلبكم. سنعاود التواصل خلال يوم عمل.','ok');
+  }catch{
+    say('تعذّر الإرسال. راسلونا على info@innexia.sa','err');
+  }finally{ send.disabled=false; send.style.opacity='' }
+});
 </script>
 </body>
 </html>
