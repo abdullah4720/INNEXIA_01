@@ -198,7 +198,6 @@ h2{font-weight:600;font-size:clamp(1.68rem,3.7vw,2.65rem);line-height:1.35;lette
   transform:scaleX(0);transition:transform .55s cubic-bezier(.5,0,.2,1)}
 .prod:hover{transform:translateY(-5px);border-color:var(--line-2);box-shadow:0 22px 54px rgba(0,0,0,.5)}
 .prod:hover::before{transform:scaleX(1)}
-.prod-stage{font-family:var(--mono);font-size:.68rem;color:var(--dim);letter-spacing:.1em;margin-bottom:18px}
 .prod-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px}
 .prod-top h3{font-weight:600;font-size:1.12rem;margin-bottom:5px}
 .prod-who{font-size:.76rem;color:var(--dim)}
@@ -448,12 +447,28 @@ footer{padding:56px var(--pad) 40px;border-top:1px solid var(--line);margin-top:
     <div class="head rv">
       <div class="kicker m">منتجاتنا</div>
       <h2>منصات إنكسيا</h2>
-      <p>ثلاث منصات رقمية نطوّرها ونشغّلها، تغطي رحلة الفكرة كاملة — من استقطابها حتى ترخيصها.</p>
+      <p>منصات رقمية تطوّرها إنكسيا وتشغّلها، تغطي بناء ثقافة الابتكار واستقطاب الأفكار وحماية مخرجاتها، وتُهيّأ كلٌّ منها وفق هوية الجهة ومتطلبات برامجها.</p>
     </div>
 
     <div class="prods">
       <article class="prod rv">
-        <div class="prod-stage">01 — استقطاب</div>
+        <div class="prod-top">
+          <div>
+            <h3>منصة التعلّم بالألعاب</h3>
+            <div class="prod-who">للمعارض والمؤتمرات وبرامج التدريب</div>
+          </div>
+          <div class="icon b"><svg viewBox="0 0 24 24" class="i-b" aria-hidden="true"><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg></div>
+        </div>
+        <p class="prod-desc">تجارب تفاعلية تُرسّخ مفاهيم الابتكار وريادة الأعمال من خلال التطبيق العملي، يشارك فيها الحضور عبر أجهزتهم مباشرة مع تغذية راجعة فورية.</p>
+        <ul>
+          <li>تجربة «Innovation Marketplace» لمحاكاة سوق الابتكار</li>
+          <li>تجربة «اختبر فكرتك» لعرض الفكرة على مستثمر افتراضي</li>
+          <li>تقييم وتغذية راجعة بالذكاء الاصطناعي</li>
+        </ul>
+        <span class="tag live">● تعمل الآن</span>
+      </article>
+
+      <article class="prod rv">
         <div class="prod-top">
           <div>
             <h3>منصة الفعاليات والتحديات</h3>
@@ -461,18 +476,19 @@ footer{padding:56px var(--pad) 40px;border-top:1px solid var(--line);margin-top:
           </div>
           <div class="icon m"><svg viewBox="0 0 24 24" class="i-m" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91 0z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
         </div>
-        <p class="prod-desc">تشغيل الهاكاثونات والمعسكرات وتحديات المعارض من منصة واحدة — من التسجيل حتى إعلان الفائزين.</p>
+        <p class="prod-desc">منصة متكاملة لتشغيل الهاكاثونات والتحديات والمعسكرات، تُضبط مساراتها ومعاييرها ومواعيدها من لوحة التحكم دون الحاجة إلى تطوير جديد لكل دورة.</p>
         <ul>
-          <li>تسجيل أفراد وفرق مع تحقق</li>
-          <li>تحكيم إلكتروني بمعايير مخصّصة</li>
-          <li>تحديات تفاعلية للزوّار عبر QR</li>
-          <li>لوحة متابعة ونتائج لحظية</li>
+          <li>تسجيل إلكتروني بنماذج داخل المنصة</li>
+          <li>تصفية متعددة المراحل من الترشيح إلى التأهل</li>
+          <li>تقييم وتحكيم مدعوم بالذكاء الاصطناعي</li>
+          <li>لوحة تحكم تُضبط منها إعدادات البرنامج كاملة</li>
+          <li>شهادات تلقائية للمشاركين</li>
+          <li>تقارير ولوحات بيانات لحظية للمنظّم</li>
         </ul>
         <span class="tag live">● تعمل الآن</span>
       </article>
 
       <article class="prod rv">
-        <div class="prod-stage">02 — حماية</div>
         <div class="prod-top">
           <div>
             <h3>منصة إدارة الملكية الفكرية</h3>
@@ -480,37 +496,20 @@ footer{padding:56px var(--pad) 40px;border-top:1px solid var(--line);margin-top:
           </div>
           <div class="icon v"><svg viewBox="0 0 24 24" class="i-v" aria-hidden="true"><path d="M12 3l7 3v6c0 5-3 7.5-7 9-4-1.5-7-4-7-9V6z"/><path d="m9.5 12 1.8 1.8 3.4-3.6"/></svg></div>
         </div>
-        <p class="prod-desc">سجل مركزي للمحفظة يمنع ضياع المهل النظامية وفوات الرسوم، ويُظهر حالة كل طلب في لوحة واحدة.</p>
+        <p class="prod-desc">نظام متكامل لإدارة طلبات الملكية الفكرية عبر مراحلها من الإفصاح حتى منح البراءة، مع متابعة الوثائق والرسوم ومخرجات مكتب البراءات الخارجي.</p>
         <ul>
-          <li>تتبّع الطلبات ومراحلها النظامية</li>
-          <li>تنبيهات الرسوم قبل استحقاقها</li>
-          <li>ربط المخترعين بطلباتهم</li>
-          <li>تقارير أداء المحفظة</li>
-        </ul>
-        <span class="tag live">● تعمل الآن</span>
-      </article>
-
-      <article class="prod rv">
-        <div class="prod-stage">03 — تسويق</div>
-        <div class="prod-top">
-          <div>
-            <h3>Innovation Marketplace</h3>
-            <div class="prod-who">للجامعات والقطاع الصناعي</div>
-          </div>
-          <div class="icon b"><svg viewBox="0 0 24 24" class="i-b" aria-hidden="true"><path d="M3 9h18M3 9l1.5-5h15L21 9M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9"/><path d="M9 21v-7h6v7"/></svg></div>
-        </div>
-        <p class="prod-desc">سوق رقمي يعرض التقنيات القابلة للترخيص أمام الشركات الباحثة عن حلول، ويدير التفاوض حتى التعاقد.</p>
-        <ul>
-          <li>عرض التقنيات وبراءات الاختراع</li>
-          <li>مطابقة الطلب الصناعي بالعرض البحثي</li>
-          <li>إدارة طلبات الترخيص</li>
-          <li>تقارير اهتمام السوق</li>
+          <li>مراحل متسلسلة من الإفصاح حتى المنح</li>
+          <li>دورة موافقات واعتماد لكل مرحلة</li>
+          <li>أرشيف وثائق ومرفقات لكل طلب</li>
+          <li>متابعة رسوم الهيئة السعودية ومواعيدها</li>
+          <li>التحقق من مخرجات المكتب الخارجي وفواتيره</li>
+          <li>وصول مشترك بصلاحيات محدّدة لكل طرف</li>
         </ul>
         <span class="tag soon">● قيد التطوير</span>
       </article>
+
     </div>
 
-    <p class="avail rv">تُتاح منصات إنكسيا بترخيص سنوي، أو كخدمة مُشغّلة ضمن مشروع، أو بتخصيص كامل لهوية الجهة.</p>
   </div>
 </section>
 
@@ -550,8 +549,7 @@ footer{padding:56px var(--pad) 40px;border-top:1px solid var(--line);margin-top:
 <!-- ================ العملاء ================ -->
 <section id="clients">
   <div class="inner">
-    <div class="head rv"><div class="kicker b">شركاؤنا</div><h2>العملاء المستهدفون</h2>
-      <p>نخدم مجموعة متنوعة من الجهات الرائدة في المنطقة.</p></div>
+    <div class="head rv"><div class="kicker b">شركاؤنا</div><h2>العملاء المستهدفون</h2></div>
     <div class="clients">
       <div class="client rv">
         <div class="icon m"><svg viewBox="0 0 24 24" class="i-m" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></div>
@@ -615,8 +613,6 @@ footer{padding:56px var(--pad) 40px;border-top:1px solid var(--line);margin-top:
       <span class="sep"></span>
       <img src="data:image/png;base64,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" alt="Innexia — Where Innovation Became Impact">
     </div>
-    <p class="f-note">نفخر بخدمة مؤسسات رائدة في المنطقة</p>
-    <div class="f-tags"><span>الجامعات</span><span>الجهات الحكومية</span><span>القطاع الخاص</span><span>صناديق الاستثمار</span></div>
     <div class="f-bot">
       <span>© Innexia 2026 · جميع الحقوق محفوظة</span>
       <span class="en-tag">WHERE INNOVATION BECAME IMPACT</span>
